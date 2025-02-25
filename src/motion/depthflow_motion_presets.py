@@ -1,4 +1,3 @@
-from DepthFlow.Motion import Presets
 from ..base_flex import BaseFlex
 
 class DepthflowMotionPreset(BaseFlex):
@@ -55,6 +54,7 @@ class DepthflowMotionPresetCircle(DepthflowMotionPreset):
         return ["intensity", "phase_x", "phase_y", "phase_z", "amplitude_x", "amplitude_y", "amplitude_z", "static_value", "None"]
 
     def create_internal(self, intensity, reverse, smooth, phase_x, phase_y, phase_z, amplitude_x, amplitude_y, amplitude_z, static_value, **kwargs):
+        from DepthFlow.Motion import Presets
         # Create the Circle preset object with the provided parameters
         preset = Presets.Circle(
             intensity=intensity,
@@ -95,6 +95,7 @@ class DepthflowMotionPresetZoom(DepthflowMotionPreset):
         return ["intensity", "phase", "None"]
 
     def create_internal(self, intensity, reverse, smooth, phase, loop, **kwargs):
+        from DepthFlow.Motion import Presets
         # Create the Zoom preset object with the provided parameters
         preset = Presets.Zoom(
             intensity=intensity,
@@ -134,6 +135,7 @@ class DepthflowMotionPresetDolly(DepthflowMotionPreset):
         return ["intensity", "depth", "None"]
 
     def create_internal(self, intensity, reverse, smooth, loop, depth, **kwargs):
+        from DepthFlow.Motion import Presets
         # Create the Dolly preset object with the provided parameters
         preset = Presets.Dolly(
             intensity=intensity,
@@ -174,6 +176,7 @@ class DepthflowMotionPresetVertical(DepthflowMotionPreset):
         return ["intensity", "phase", "steady_value", "None"]
 
     def create_internal(self, intensity, reverse, smooth, loop, phase, steady_value, **kwargs):
+        from DepthFlow.Motion import Presets
         # Create the Vertical preset object with the provided parameters
         preset = Presets.Vertical(
             intensity=intensity,
@@ -215,6 +218,7 @@ class DepthflowMotionPresetHorizontal(DepthflowMotionPreset):
         return ["intensity", "phase", "steady_value", "None"]
 
     def create_internal(self, intensity, reverse, smooth, loop, phase, steady_value, **kwargs):
+        from DepthFlow.Motion import Presets
         # Create the Horizontal preset object with the provided parameters
         preset = Presets.Horizontal(
             intensity=intensity,
@@ -250,6 +254,7 @@ class DepthflowMotionPresetOrbital(DepthflowMotionPreset):
         return ["intensity", "depth", "None"]
 
     def create_internal(self, intensity, depth, reverse, **kwargs):
+        from DepthFlow.Motion import Presets
         # Create the Orbital preset object with the provided parameters
         preset = Presets.Orbital(
             intensity=intensity,

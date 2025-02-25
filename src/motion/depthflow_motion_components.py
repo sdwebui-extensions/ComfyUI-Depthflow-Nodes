@@ -1,5 +1,4 @@
 from .depthflow_motion_base import DepthflowMotion, Target
-from DepthFlow.Motion import Components, Preset
 
 TARGETS = [target.name for target in Target]
 
@@ -37,6 +36,7 @@ class DepthflowMotionSine(DepthflowMotion):
         return ["amplitude", "phase", "cycles", "None"]
 
     def create_internal(self, target, amplitude, cycles, phase, reverse, bias, cumulative, **kwargs):
+        from DepthFlow.Motion import Components, Preset
         # Create the Sine component
         animation = Components.Sine(
             target=Target[target].value,
@@ -89,6 +89,7 @@ class DepthflowMotionCosine(DepthflowMotion):
         return ["amplitude", "phase", "cycles", "None"]
 
     def create_internal(self, target, amplitude, cycles, phase, reverse, bias, cumulative, **kwargs):
+        from DepthFlow.Motion import Components, Preset
         # Create the Cosine component
         animation = Components.Cosine(
             target=Target[target].value,
@@ -143,6 +144,7 @@ class DepthflowMotionLinear(DepthflowMotion):
         return ["start", "end", "low", "high", "exponent", "None"]
 
     def create_internal(self, target, start, end, low, high, exponent, reverse, cumulative, **kwargs):
+        from DepthFlow.Motion import Components, Preset
         # Create the Linear component
         animation = Components.Linear(
             target=Target[target].value,
@@ -192,6 +194,7 @@ class DepthflowMotionExponential(DepthflowMotion):
         return ["base", "scale", "None"]
 
     def create_internal(self, target, base, scale, reverse, cumulative, **kwargs):
+        from DepthFlow.Motion import Components, Preset
         # Create the Exponential component
         animation = Components.Exponential(
             target=Target[target].value,
@@ -241,6 +244,7 @@ class DepthflowMotionArc(DepthflowMotion):
         return ["start", "middle", "end", "None"]
 
     def create_internal(self, target, start, middle, end, reverse, cumulative, **kwargs):
+        from DepthFlow.Motion import Components, Preset
         # Create the Arc component
         animation = Components.Arc(
             target=Target[target].value,
@@ -284,6 +288,7 @@ class DepthflowMotionSetTarget(DepthflowMotion):
         return ["value", "None"]
 
     def create_internal(self, target, value, **kwargs):
+        from DepthFlow.Motion import Components, Preset
         # Create the Set component
         animation = Components.Set(
             target=Target[target].value,

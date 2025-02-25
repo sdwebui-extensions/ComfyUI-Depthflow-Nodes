@@ -1,7 +1,5 @@
 import torch
 from DepthFlow import DepthScene
-from Broken.Loaders import LoaderImage
-from ShaderFlow.Texture import ShaderTexture
 import numpy as np
 from collections import deque
 from comfy.utils import ProgressBar
@@ -76,6 +74,7 @@ class CustomDepthflowScene(DepthScene):
        
     # TODO: This is a temporary fix to while build gets fixed
     def build(self):
+        from ShaderFlow.Texture import ShaderTexture
         self.image = ShaderTexture(scene=self, name="image").repeat(False)
         self.depth = ShaderTexture(scene=self, name="depth").repeat(False)
         self.normal = ShaderTexture(scene=self, name="normal")
@@ -116,6 +115,7 @@ class CustomDepthflowScene(DepthScene):
             self.add_animation(motion)
 
     def update(self):
+        from Broken.Loaders import LoaderImage
         frame_duration = 1.0 / self.input_fps
 
         while self.time > self.video_time:
